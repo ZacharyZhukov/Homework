@@ -143,8 +143,7 @@ average_heights = greendb %>% filter(species_ru == "Ясень обыкнове�
 # Правим табличку с данными, чтобы сортировка была и плот нормально обработал
 average_heights_data = average_heights %>% group_by(adm_region, mean_height) %>%
   arrange(adm_region, desc(mean_height)) %>%
-  mutate(order = order(mean_height, decreasing = T)) %>%
-  filter( order == 1) %>% select(-order, -mean_height) %>%
+
   rename(NAME = adm_region)
 
 
